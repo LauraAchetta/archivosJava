@@ -5,6 +5,24 @@ import java.util.Scanner;
 
 public class ArchivoServicio {
 
+    public void crearArchivoPocasLineas(String nombre){
+        File archivo = new File(nombre);
+        try {
+            FileWriter escritor = new FileWriter(archivo,true);
+
+            escritor.append("Hola que tal amigos!\n")
+                    .append("Todo bien? yo acá escribiendo un archivo...\n")
+                    .append("Hasta luego Lucas!\n");
+             escritor.close();
+            System.out.println("El archivo se ha creado con éxito!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
     public void crearArchivo(String nombre){
         File archivo = new File(nombre);
         try (BufferedWriter buffer = new BufferedWriter(new FileWriter(archivo, true))){
@@ -18,6 +36,13 @@ public class ArchivoServicio {
             e.printStackTrace();
         }
     }
+    
+
+
+
+
+
+
 
     public void crearArchivo2(String nombre){
         File archivo = new File(nombre);
@@ -63,4 +88,19 @@ public class ArchivoServicio {
         }
         return sb.toString();
     }
+
+    public void LeerArchivoPocasLineas(String nombre){
+        File archivo = new File(nombre);
+        try {
+            FileReader escritor = new FileReader(archivo);
+             System.out.println(escritor.toString());
+             escritor.close();
+           
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       
+
+
+}
 }
